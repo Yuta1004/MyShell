@@ -14,6 +14,7 @@ void (*__name_2_func(char *name))(void);
  * - Vector<Command>: Command構造体のVector
  */
 Vector* convert_2_command_vec(Vector *inp) {
+    // TODO: |, ||, &&
     // コマンド構造体準備
     Command *command = (Command*)calloc(1, sizeof(Command));
     command->func = __name_2_func(vec_get(inp, 0));
