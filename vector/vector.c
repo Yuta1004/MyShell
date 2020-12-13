@@ -78,6 +78,26 @@ int vec_find(Vector *vec, void* target) {
 }
 
 /**
+ *  # Vectorから任意の要素を削除する
+ * ## Params
+ * - Vector *vec: 対象Vector
+ * - int target_idx: 要素指定
+ * ## Returns
+ * - int: 削除に成功した場合0、そうでない場合1
+ */
+int vec_remove(Vector *vec, int target_idx) {
+    if(target_idx < 0 || vec->len <= target_idx){
+        return -1;
+    }
+    free(vec->data[target_idx]);
+    for(int idx = target_idx; idx < vec->len-1; ++ idx) {
+        vec->data[idx] = vec->data[idx+1];
+    }
+    -- vec->len;
+    return 0;
+}
+
+/**
  *  # Vectorサイズを拡張する
  * ## Params
  * - Vector *vec: 対象Vector
