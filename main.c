@@ -32,6 +32,7 @@ int main(void) {
         (command->func)();
 
         // 後片付け
+        vec_free(command_vec);
         vec_free(inp_vec);
     }
 }
