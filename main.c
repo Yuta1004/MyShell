@@ -9,7 +9,7 @@
 #include "vector/vector.h"
 
 void print_init_msg();
-void print_fin_msg();
+void exit_shell();
 
 int main(void) {
     /* 起動処理 */
@@ -19,17 +19,17 @@ int main(void) {
 
     /* シェル本体処理部 */
     while(1) {
+        // コマンド入力
         char inp[256];
         printf(">> ");
         scanf("%256[^\n]", inp);
         Vector *argv = split(inp, ' ');
-        vec_free(argv);
-        break;
-    }
 
-    /* 終了時処理 */
-    print_fin_msg();
-    return 0;
+        // TODO: コマンド実行
+
+        // 後片付け
+        vec_free(argv);
+    }
 }
 
 void print_init_msg(int uid, char *username, char* homedir) {
@@ -45,6 +45,9 @@ void print_init_msg(int uid, char *username, char* homedir) {
     printf("Hello %s(%d)! (HomeDir => %s)\n\n", username, uid, homedir);
 }
 
-void print_fin_msg() {
+/* # シェルを終了する
+ */
+void exit_shell() {
     printf("\nBye...\n");
+    exit(0);
 }
