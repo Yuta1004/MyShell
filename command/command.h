@@ -7,7 +7,7 @@
 
 typedef struct Command Command;
 struct Command {
-    void (*func)(void);
+    int (*func)(void);
     Vector *argv;
     FILE *stdin;
     FILE *stdout;
