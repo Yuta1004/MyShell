@@ -21,9 +21,13 @@ int main(void) {
     /* シェル本体処理部 */
     int result = 0;
     while(1) {
+        // プロンプト出力
+        char cpath[128];
+        getcwd(cpath, 128);
+        printf("(%d)[%s@localhost %s] $ ", result, pw->pw_name, cpath);
+
         // コマンド入力
         char inp[256];
-        printf("(%d)[%s@localhost %s] $ ", result, pw->pw_name, "/path/to/current");
         fgets(inp, 256, stdin);
         Vector *inp_vec = split(inp, ' ');
 
