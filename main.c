@@ -28,8 +28,7 @@ int main(void) {
 
         // コマンド実行
         Vector *command_vec = convert_2_command_vec(inp_vec);
-        Command *command = vec_get(command_vec, 0);
-        (command->func)();
+        exec_command(command_vec);
 
         // 後片付け
         vec_free(command_vec);

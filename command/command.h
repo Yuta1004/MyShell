@@ -18,6 +18,9 @@ struct Command {
 /* convert.c */
 Vector* convert_2_command_vec(Vector *inp);
 
+/* exec.c */
+int exec_command(Vector *command_vec);
+
 /* default_func.c */
 int hello();
 int not_default_command();
