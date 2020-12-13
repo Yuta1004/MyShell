@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 #include "command.h"
@@ -31,6 +32,11 @@ Vector* convert_2_command_vec(Vector *inp) {
 }
 
 int (*__name_2_func(char *name))(void) {
-    if(strncmp(name, "exit", 4) == 0) return exit_shell;
+    int len = strlen(name);
+    switch(strlen(name)) {
+        case 4+1:
+            if(strncmp(name, "exit", 4) == 0) return exit_shell;
+            break;
+    }
     return not_default_command;
 }
