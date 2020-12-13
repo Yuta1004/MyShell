@@ -10,7 +10,6 @@
 #include "command/command.h"
 
 void print_init_msg();
-void exit_shell();
 
 int main(void) {
     /* 起動処理 */
@@ -52,12 +51,4 @@ void print_init_msg(int uid, char *username, char* homedir) {
     printf("|  ####    ######     ##      ####    ######     ##              ######   ###  ##   #####    ####     #### |\n");
     printf("------------------------------------------------------------------------------------------------------------\n");
     printf("Hello %s(%d)! (HomeDir => %s)\n\n", username, uid, homedir);
-}
-
-/**
- *  # シェルを終了する
- */
-void exit_shell() {
-    printf("\nBye...\n");
-    exit(0);
 }

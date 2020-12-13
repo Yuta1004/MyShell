@@ -2,9 +2,9 @@
 
 #include "command.h"
 
-int hello() {
-    printf("Hello!");
-    return 0;
+int exit_shell() {
+    printf("Bye...\n");
+    exit(0);
 }
 
 int not_default_command() {

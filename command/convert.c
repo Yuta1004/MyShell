@@ -4,7 +4,7 @@
 #include "command.h"
 #include "../vector/vector.h"
 
-void (*__name_2_func(char *name))(void);
+int (*__name_2_func(char *name))(void);
 
 /**
  * # 文字列郡を実行可能な形態に変換して返す
@@ -30,7 +30,7 @@ Vector* convert_2_command_vec(Vector *inp) {
     return command_vec;
 }
 
-void (*__name_2_func(char *name))(void) {
-    if(strncmp(name, "hello", 5) == 0) return hello;
+int (*__name_2_func(char *name))(void) {
+    if(strncmp(name, "exit", 4) == 0) return exit_shell;
     return not_default_command;
 }
