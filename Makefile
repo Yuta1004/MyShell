@@ -2,7 +2,7 @@ CC := gcc
 GCC := gcc
 SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
-LIBRARIES := vector/vector.o str/str.o
+LIBRARIES := vector/libvector.o str/libstr.o
 CFLAGS := -std=c11 -g -static
 
 
