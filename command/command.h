@@ -5,11 +5,11 @@
 
 typedef struct Command Command;
 struct Command {
-    void *func;
+    void (*func)(void);
     Vector *argv;
-    int stdin;
-    int stdout;
-    int stderr;
+    FILE *stdin;
+    FILE *stdout;
+    FILE *stderr;
     int result;
 };
 
