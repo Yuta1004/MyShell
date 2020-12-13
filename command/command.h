@@ -19,7 +19,7 @@ struct Command {
 Vector* convert_2_command_vec(Vector *inp);
 
 /* default_func.c */
-void hello();
-void not_default_command();
+int hello();
+int not_default_command();
 
 #endif  // !MY_COMMAND_H
