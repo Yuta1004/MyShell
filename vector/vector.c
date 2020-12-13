@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "vector.h"
 
 /**
@@ -13,6 +14,22 @@ Vector* vec_new(int capacity){
     vec->capacity = capacity;
     vec->len = 0;
     return vec;
+}
+
+/**
+ *  # Vectorをコピーする(ハード)
+ * ## Params
+ * - 対象Vector
+ * ## Returns
+ * - Vector*: コピーされたVector
+ */
+Vector *vec_cpy(Vector* vec) {
+    Vector *newer_vec = (Vector*)malloc(sizeof(Vector));
+    newer_vec->data = (void**)malloc(sizeof(void*) * vec->capacity);
+    newer_vec->capacity = vec->capacity;
+    newer_vec->len = vec->len;
+    memcpy(newer_vec->data, vec->data, sizeof(void*) * vec->capacity);
+    return newer_vec;
 }
 
 /**
