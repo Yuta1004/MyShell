@@ -41,7 +41,7 @@ int vec_find(Vector *vec, void* target) {
     return -1;
 }
 
-void *vec_add_capacity(Vector *vec, int size) {
+void vec_add_capacity(Vector *vec, int size) {
     int new_capacity = vec->capacity + size;
     void **new_data = (void**)malloc(sizeof(void*) * new_capacity);
     for(int idx = 0; idx < vec->capacity; ++ idx) {
@@ -56,4 +56,3 @@ void vec_free(Vector *vec) {
     free(vec->data);
     free(vec);
 }
-;
