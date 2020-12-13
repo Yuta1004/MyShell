@@ -6,7 +6,8 @@
 
 char* __get_str_n(char* str, size_t n);
 
-/* # 文字列を指定文字で分割する
+/**
+ *  # 文字列を指定文字で分割する
  * ## Params
  * - char* raw_str : 分割する文字列
  * - char target : 指定文字

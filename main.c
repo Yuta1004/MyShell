@@ -45,7 +45,8 @@ void print_init_msg(int uid, char *username, char* homedir) {
     printf("Hello %s(%d)! (HomeDir => %s)\n\n", username, uid, homedir);
 }
 
-/* # シェルを終了する
+/**
+ *  # シェルを終了する
  */
 void exit_shell() {
     printf("\nBye...\n");
