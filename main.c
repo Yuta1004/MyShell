@@ -22,7 +22,7 @@ int main(void) {
         // コマンド入力
         char inp[256];
         printf(">> ");
-        scanf("%256[^\n]", inp);
+        fgets(inp, 256, stdin);
         Vector *argv = split(inp, ' ');
 
         // TODO: コマンド実行
