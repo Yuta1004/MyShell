@@ -2,7 +2,7 @@ CC := gcc
 GCC := gcc
 SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
-LIBRARIES := vector/libvector.o str/libstr.o
+LIBRARIES := $(wildcard **/lib*.o)
 CFLAGS := -std=c11 -g -static
 
 
@@ -17,6 +17,7 @@ build: $(OBJS)
 build-lib:
 	make -C vector
 	make -C str
+	make -C command
 
 run:
 	./myshell_i17027

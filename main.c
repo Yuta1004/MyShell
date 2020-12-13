@@ -7,6 +7,7 @@
 
 #include "str/str.h"
 #include "vector/vector.h"
+#include "command/command.h"
 
 void print_init_msg();
 void exit_shell();
@@ -23,12 +24,15 @@ int main(void) {
         char inp[256];
         printf(">> ");
         fgets(inp, 256, stdin);
-        Vector *argv = split(inp, ' ');
+        Vector *inp_vec = split(inp, ' ');
 
-        // TODO: コマンド実行
+        // コマンド実行
+        Vector *command_vec = convert_2_command_vec(inp_vec);
+        Command *command = vec_get(command_vec, 0);
+        (command->func)();
 
         // 後片付け
-        vec_free(argv);
+        vec_free(inp_vec);
     }
 }
 
