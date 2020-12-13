@@ -19,16 +19,17 @@ int main(void) {
     print_init_msg(uid, pw->pw_name, pw->pw_dir);
 
     /* シェル本体処理部 */
+    int result = 0;
     while(1) {
         // コマンド入力
         char inp[256];
-        printf(">> ");
+        printf("(%d)[%s@localhost %s] $ ", result, pw->pw_name, "/path/to/current");
         fgets(inp, 256, stdin);
         Vector *inp_vec = split(inp, ' ');
 
         // コマンド実行
         Vector *command_vec = convert_2_command_vec(inp_vec);
-        exec_command(command_vec);
+        result = exec_command(command_vec);
 
         // 後片付け
         vec_free(command_vec);
