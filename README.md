@@ -62,6 +62,9 @@ int change_directory(Command *argv);
 (0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ ls
 Makefile	command.c	command.h	command.o	convert.c	convert.o	default_func.c	default_func.o	exec.c		exec.o		libcommand.o
 
-(0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ exit
+(0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ cd command.c
+Not a directory
+
+(20)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ exit
 Bye...
 ```
