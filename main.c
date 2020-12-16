@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <pwd.h>
 #include <unistd.h>
@@ -34,6 +35,10 @@ int main(void) {
         // コマンド実行
         Vector *command_vec = convert_2_command_vec(inp_vec);
         result = exec_command(command_vec);
+        if(result > 0) {
+            fprintf(stderr, "%s\n", strerror(result));      // 必要であればエラーメッセージ表示
+        }
+        printf("\n");
 
         // 後片付け
         for(int idx = 0; idx < command_vec->len; ++ idx) {

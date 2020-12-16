@@ -36,19 +36,19 @@ int fork_process(Command *command) {
         execvp(vec_get(command->argv, 0), (char**)(command->argv->data));
         exit(errno);
     } else if(pid < 0) {
-        return -124;
+        return errno;
     }
-    int result = -112;
+    int result = -1;
     wait(&result);
     return result/256;
 }
 
 int change_directory(Command *command) {
     if(command->argv->len != 2) {
-        return 1;
+        return 7;
     }
     if(chdir(vec_get(command->argv, 1)) < 0) {
-        return 1;
+        return errno;
     }
     return 0;
 }
