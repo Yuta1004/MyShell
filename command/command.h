@@ -22,7 +22,7 @@ struct Command {
 };
 
 /* command.c */
-Command *__gen_command(int(*func)(Command*), Vector *argv);
+Command *command_new(int(*func)(Command*), Vector *argv);
 
 /* convert.c */
 Vector* convert_2_command_vec(Vector *inp);

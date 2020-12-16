@@ -3,7 +3,7 @@
 
 #include "command.h"
 
-Command *__gen_command(int(*func)(Command*), Vector *argv) {
+Command *command_new(int(*func)(Command*), Vector *argv) {
     Command *command = (Command*)calloc(1, sizeof(Command));
     command->func = func;
     command->argv = argv;
