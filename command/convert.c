@@ -15,7 +15,7 @@ int (*__name_2_func(char *name))(Vector*);
  * - Vector<Command>: Command構造体のVector
  */
 Vector* convert_2_command_vec(Vector *inp) {
-    // TODO: |, ||, &&
+    // TODO: |, ||
     Vector *command_vec = vec_new(1);
 
     for(int idx = 0; idx <inp->len; ++ idx) {
