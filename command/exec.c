@@ -20,6 +20,9 @@ int exec_command(Vector *command_vec) {
         if(command->exec_type == CONTINUE_WITH_SUCCESS && result != 0){
             break;
         }
+        if(command->exec_type == CONTINUE_WITH_FAILUE && result == 0){
+            break;
+        }
     }
     return result;
 }
