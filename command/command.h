@@ -5,6 +5,15 @@
 
 #include "../vector/vector.h"
 
+typedef enum ExecType ExecType;
+enum ExecType {
+    NORMAL,
+    CONTINUE,   // &&
+    CONTINUE_WITH_SUCCESS,  // ;
+    CONTINUE_WITH_FAILUE,   // ||
+    PIPE    // |
+};
+
 typedef struct Command Command;
 struct Command {
     int (*func)(void);
@@ -13,6 +22,7 @@ struct Command {
     FILE *stdout;
     FILE *stderr;
     int result;
+    ExecType exec_type;
 };
 
 /* command.c */

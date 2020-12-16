@@ -11,5 +11,6 @@ Command *__gen_command(int(*func)(void), FILE *set_stdin, FILE *set_stdout, FILE
     command->stdout = set_stdout;
     command->stderr = set_stderr;
     command->argv = argv;
+    command->exec_type = NORMAL;
     return command;
 }
