@@ -6,4 +6,4 @@ CFLAGS := -std=c11 -g -static
 
 
 build: $(OBJS)
-	ld -r $(OBJS) -o libstr.o
+	ld -r $(OBJS) -o libcommand.o
