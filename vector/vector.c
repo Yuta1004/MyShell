@@ -28,7 +28,7 @@ Vector* vec_new(int capacity){
  * 区間の指定方法に注意すること => [first last)
  */
 Vector *vec_cpy(Vector* vec, int first, int last) {
-    if(first < 0 || last >= vec->len) {
+    if(first < 0 || last > vec->len) {
         return NULL;
     }
     Vector *newer_vec = (Vector*)malloc(sizeof(Vector));
