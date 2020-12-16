@@ -43,7 +43,7 @@ Vector* convert_2_command_vec(Vector *inp) {
         }
 
 command_parse_loop_end:
-        command->argv = vec_cpy(inp, old_idx+1, idx);
+        command->argv = vec_cpy(inp, old_idx, idx);
         vec_push(command_vec, command);
     }
 
