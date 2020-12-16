@@ -32,8 +32,6 @@ Vector* convert_2_command_vec(Vector *inp);
 int exec_command(Vector *command_vec);
 
 /* default_func.c */
-int cause_error(Command *argv);
-int check_argv(Command *argv);
 int exit_shell(Command *argv);
 int fork_process(Command *argv);
 int change_directory(Command *argv);
