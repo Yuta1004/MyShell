@@ -16,7 +16,7 @@ enum ExecType {
 
 typedef struct Command Command;
 struct Command {
-    int (*func)(void);
+    int (*func)(Vector*);
     Vector *argv;
     FILE *stdin;
     FILE *stdout;
@@ -26,7 +26,7 @@ struct Command {
 };
 
 /* command.c */
-Command *__gen_command(int(*func)(void), FILE *set_stdin, FILE *set_stdout, FILE *set_stderr, Vector *argv);
+Command *__gen_command(int(*func)(Vector*), FILE *set_stdin, FILE *set_stdout, FILE *set_stderr, Vector *argv);
 
 /* convert.c */
 Vector* convert_2_command_vec(Vector *inp);

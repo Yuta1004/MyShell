@@ -5,7 +5,7 @@
 #include "command.h"
 #include "../vector/vector.h"
 
-int (*__name_2_func(char *name))(void);
+int (*__name_2_func(char *name))(Vector*);
 
 /**
  * # 文字列郡を実行可能な形態に変換して返す
@@ -46,7 +46,7 @@ command_parse_loop_end:
     return command_vec;
 }
 
-int (*__name_2_func(char *name))(void) {
+int (*__name_2_func(char *name))(Vector*) {
     int len = strlen(name);
     switch(strlen(name)) {
         case 4:

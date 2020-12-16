@@ -13,7 +13,7 @@ int exec_command(Vector *command_vec) {
     int result = -1;
     for(int idx = 0; idx < command_vec->len; ++ idx) {
         Command *command = vec_get(command_vec, idx);
-        result = (command->func)();
+        result = (command->func)(command->argv);
     }
     return result;
 }
