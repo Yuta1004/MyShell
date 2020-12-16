@@ -9,7 +9,7 @@ struct Vector{
 };
 
 Vector *vec_new(int capacity);
-Vector *vec_cpy(Vector *vec);
+Vector *vec_cpy(Vector *vec, int first, int last);
 void *vec_push(Vector *vec, void *item);
 void *vec_pop(Vector *vec);
 void *vec_get(Vector *vec, int idx);

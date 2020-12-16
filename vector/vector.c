@@ -19,16 +19,23 @@ Vector* vec_new(int capacity){
 /**
  *  # Vectorをコピーする(ハード)
  * ## Params
- * - 対象Vector
+ * - Vector *vec: 対象Vector
+ * - int first: 区間の左端
+ * - int last: 区間の右端
  * ## Returns
- * - Vector*: コピーされたVector
+ * - Vector*: コピーされたVector、失敗した場合はNULL
+ * ## Others
+ * 区間の指定方法に注意すること => [first last)
  */
-Vector *vec_cpy(Vector* vec) {
+Vector *vec_cpy(Vector* vec, int first, int last) {
+    if(first < 0 || last >= vec->len) {
+        return NULL;
+    }
     Vector *newer_vec = (Vector*)malloc(sizeof(Vector));
     newer_vec->data = (void**)malloc(sizeof(void*) * vec->capacity);
     newer_vec->capacity = vec->capacity;
-    newer_vec->len = vec->len;
-    memcpy(newer_vec->data, vec->data, sizeof(void*) * vec->capacity);
+    newer_vec->len = last-first;
+    memcpy(newer_vec->data, vec->data+first, sizeof(void*) * (last-first));
     return newer_vec;
 }
 

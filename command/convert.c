@@ -23,8 +23,7 @@ Vector* convert_2_command_vec(Vector *inp) {
     command->stdin = stdin;
     command->stdout = stdout;
     command->stderr = stderr;
-    command->argv = vec_cpy(inp);
-    vec_remove(command->argv, 0);
+    command->argv = vec_cpy(inp, 1, inp->len);
 
     Vector *command_vec = vec_new(1);
     vec_push(command_vec, command);
