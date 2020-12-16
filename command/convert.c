@@ -17,9 +17,28 @@ int (*__name_2_func(char *name))(void);
 Vector* convert_2_command_vec(Vector *inp) {
     // TODO: |, ||, &&
     Vector *command_vec = vec_new(1);
-    int(*func)(void) = __name_2_func(vec_get(inp, 0));
-    Command *command = __gen_command(func, stdin, stdout, stderr, vec_cpy(inp, 1, inp->len));
-    vec_push(command_vec, command);
+
+    for(int idx = 0; idx <inp->len; ++ idx) {
+        // コマンド基本情報設定
+        Command *command = __gen_command(NULL, stdin, stdout, stderr, NULL);
+        command->func = __name_2_func(vec_get(inp, idx));
+
+        // 引数解析
+        int old_idx = idx;
+        for(++ idx; idx < inp->len; ++ idx) {
+            char *elem = vec_get(inp, idx);
+            int elem_len = strlen(elem);
+            if(elem_len == 1 && strncmp(elem, ";", 1) == 0) {
+                command->exec_type = CONTINUE;
+                goto command_parse_loop_end;
+            }
+        }
+
+command_parse_loop_end:
+        command->argv = vec_cpy(inp, old_idx+1, idx+1);
+        vec_push(command_vec, command);
+    }
+
     return command_vec;
 }
 
