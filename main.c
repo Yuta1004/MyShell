@@ -26,8 +26,8 @@ int main(void) {
         printf("(%d)[%s@localhost %s] $ ", result, pw->pw_name, cpath);
 
         // コマンド入力
-        char inp[256];
-        fgets(inp, 256, stdin);
+        char inp[256] = {0};
+        scanf("%256[^\n]", inp);
         Vector *inp_vec = split(inp, ' ');
 
         // コマンド実行

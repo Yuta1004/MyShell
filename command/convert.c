@@ -45,7 +45,7 @@ command_parse_loop_end:
 int (*__name_2_func(char *name))(void) {
     int len = strlen(name);
     switch(strlen(name)) {
-        case 4+1:
+        case 4:
             if(strncmp(name, "exit", 4) == 0) return exit_shell;
             break;
     }
