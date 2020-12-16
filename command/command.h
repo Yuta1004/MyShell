@@ -15,6 +15,9 @@ struct Command {
     int result;
 };
 
+/* command.c */
+Command *__gen_command(int(*func)(void), FILE *set_stdin, FILE *set_stdout, FILE *set_stderr, Vector *argv);
+
 /* convert.c */
 Vector* convert_2_command_vec(Vector *inp);
 

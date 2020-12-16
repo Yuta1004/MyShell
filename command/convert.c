@@ -16,16 +16,9 @@ int (*__name_2_func(char *name))(void);
  */
 Vector* convert_2_command_vec(Vector *inp) {
     // TODO: |, ||, &&
-    // コマンド構造体準備
-    Command *command = (Command*)calloc(1, sizeof(Command));
-    command->func = __name_2_func(vec_get(inp, 0));
-    command->result = -1;
-    command->stdin = stdin;
-    command->stdout = stdout;
-    command->stderr = stderr;
-    command->argv = vec_cpy(inp, 1, inp->len);
-
     Vector *command_vec = vec_new(1);
+    int(*func)(void) = __name_2_func(vec_get(inp, 0));
+    Command *command = __gen_command(func, stdin, stdout, stderr, vec_cpy(inp, 1, inp->len));
     vec_push(command_vec, command);
     return command_vec;
 }
