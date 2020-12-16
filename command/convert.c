@@ -39,7 +39,7 @@ Vector* convert_2_command_vec(Vector *inp) {
         }
 
 command_parse_loop_end:
-        command->argv = vec_cpy(inp, old_idx+1, idx+1);
+        command->argv = vec_cpy(inp, old_idx+1, idx);
         vec_push(command_vec, command);
     }
 
@@ -50,6 +50,7 @@ int (*__name_2_func(char *name))(Vector*) {
     int len = strlen(name);
     switch(strlen(name)) {
         case 4:
+            if(strncmp(name, "argv", 4) == 0) return check_argv;
             if(strncmp(name, "exit", 4) == 0) return exit_shell;
             break;
     }
