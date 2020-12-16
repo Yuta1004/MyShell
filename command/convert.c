@@ -53,6 +53,8 @@ int (*__name_2_func(char *name))(Vector*) {
             if(strncmp(name, "argv", 4) == 0) return check_argv;
             if(strncmp(name, "exit", 4) == 0) return exit_shell;
             break;
+        case 5:
+            if(strncmp(name, "error", 5) == 0) return cause_error;
     }
     return not_default_command;
 }
