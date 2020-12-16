@@ -23,6 +23,6 @@ run:
 	./myshell_i17027
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf **/*.o
 
 .PHONY: clean
