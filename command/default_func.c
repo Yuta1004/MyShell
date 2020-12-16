@@ -31,8 +31,7 @@ int exit_shell(Vector *argv) {
 int fork_process(Vector *argv) {
     pid_t pid = fork();
     if(pid == 0) {
-        char *args[] = {"echo", "\"This message is printed by \"echo\" process.\"", NULL};
-        execvp("echo", args);
+        execvp(vec_get(argv, 0), (char**)(argv->data));
     }
     int result = -1;
     wait(&result);
