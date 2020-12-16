@@ -9,7 +9,7 @@
  * - int: 実行結果
  */
 int exec_command(Vector *command_vec) {
-    // TODO: |, || 対応
+    // TODO: | 対応
     int result = -1;
     for(int idx = 0; idx < command_vec->len; ++ idx) {
         // 実行
