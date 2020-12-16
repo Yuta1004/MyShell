@@ -11,6 +11,10 @@ or
 ```
 $ make build-run
 ```
+or
+```
+$ ./build.sh
+```
 
 ## Features
 
