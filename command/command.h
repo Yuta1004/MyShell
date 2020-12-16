@@ -16,13 +16,13 @@ enum ExecType {
 
 typedef struct Command Command;
 struct Command {
-    int (*func)(Vector*);
+    int (*func)(Command*);
     Vector *argv;
     ExecType exec_type;
 };
 
 /* command.c */
-Command *__gen_command(int(*func)(Vector*), Vector *argv);
+Command *__gen_command(int(*func)(Command*), Vector *argv);
 
 /* convert.c */
 Vector* convert_2_command_vec(Vector *inp);
@@ -31,9 +31,9 @@ Vector* convert_2_command_vec(Vector *inp);
 int exec_command(Vector *command_vec);
 
 /* default_func.c */
-int cause_error(Vector *argv);
-int check_argv(Vector *argv);
-int exit_shell(Vector *argv);
-int fork_process(Vector *argv);
+int cause_error(Command *argv);
+int check_argv(Command *argv);
+int exit_shell(Command *argv);
+int fork_process(Command *argv);
 
 #endif  // !MY_COMMAND_H

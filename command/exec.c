@@ -14,7 +14,7 @@ int exec_command(Vector *command_vec) {
     for(int idx = 0; idx < command_vec->len; ++ idx) {
         // 実行
         Command *command = vec_get(command_vec, idx);
-        result = (command->func)(command->argv);
+        result = (command->func)(command);
 
         // 実行継続確認
         if(command->exec_type == CONTINUE_WITH_SUCCESS && result != 0){

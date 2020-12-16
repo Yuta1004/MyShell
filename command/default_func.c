@@ -8,30 +8,30 @@
 #include "../vector/vector.h"
 
 /* ------------- FOR DEBUG  -------------*/
-int cause_error(Vector *argv) {
-    if(argv->len != 1) {
+int cause_error(Command *command) {
+    if(command->argv->len != 1) {
         return 0;
     }
-    return ((char*)vec_get(argv, 0))[0] - '0';
+    return ((char*)vec_get(command->argv, 0))[0] - '0';
 }
 
-int check_argv(Vector *argv) {
-    for(int idx = 0; idx < argv->len; ++ idx) {
-        printf("%d: %s\n", idx, vec_get(argv, idx));
+int check_argv(Command *command) {
+    for(int idx = 0; idx < command->argv->len; ++ idx) {
+        printf("%d: %s\n", idx, vec_get(command->argv, idx));
     }
     return 0;
 }
 /* ------------- FOR DEBUG  -------------*/
 
-int exit_shell(Vector *argv) {
+int exit_shell(Command *command) {
     printf("Bye...\n");
     exit(0);
 }
 
-int fork_process(Vector *argv) {
+int fork_process(Command *command) {
     pid_t pid = fork();
     if(pid == 0) {
-        execvp(vec_get(argv, 0), (char**)(argv->data));
+        execvp(vec_get(command->argv, 0), (char**)(command->argv->data));
         exit(1);
     } else if(pid < 0) {
         return -124;
