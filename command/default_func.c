@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <errno.h>
 #include <unistd.h>
 #include <sys/types.h>
 
@@ -32,11 +33,11 @@ int fork_process(Command *command) {
     pid_t pid = fork();
     if(pid == 0) {
         execvp(vec_get(command->argv, 0), (char**)(command->argv->data));
-        exit(1);
+        exit(errno);
     } else if(pid < 0) {
         return -124;
     }
     int result = -112;
     wait(&result);
-    return result;
+    return result/256;
 }
