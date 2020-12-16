@@ -23,6 +23,7 @@ struct Command {
 
 /* command.c */
 Command *command_new(int(*func)(Command*), Vector *argv);
+void command_free(Command *command);
 
 /* convert.c */
 Vector* convert_2_command_vec(Vector *inp);

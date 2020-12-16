@@ -36,6 +36,9 @@ int main(void) {
         result = exec_command(command_vec);
 
         // 後片付け
+        for(int idx = 0; idx < command_vec->len; ++ idx) {
+            command_free(vec_get(command_vec, idx));
+        }
         vec_free(command_vec);
         vec_free(inp_vec);
     }
