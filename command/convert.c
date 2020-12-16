@@ -28,6 +28,10 @@ Vector* convert_2_command_vec(Vector *inp) {
         for(++ idx; idx < inp->len; ++ idx) {
             char *elem = vec_get(inp, idx);
             int elem_len = strlen(elem);
+            if(elem_len == 1 && strncmp(elem, "|", 1) == 0) {
+                command->exec_type = PIPE;
+                goto command_parse_loop_end;
+            }
             if(elem_len == 1 && strncmp(elem, ";", 1) == 0) {
                 command->exec_type = CONTINUE;
                 goto command_parse_loop_end;
