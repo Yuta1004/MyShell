@@ -56,6 +56,8 @@ command_parse_loop_end:
 int (*__name_2_func(char *name))(Command*) {
     int len = strlen(name);
     switch(strlen(name)) {
+        case 2:
+            if(strncmp(name, "cd", 2) == 0) return change_directory;
         case 4:
             if(strncmp(name, "argv", 4) == 0) return check_argv;
             if(strncmp(name, "exit", 4) == 0) return exit_shell;

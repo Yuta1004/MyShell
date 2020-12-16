@@ -42,3 +42,13 @@ int fork_process(Command *command) {
     wait(&result);
     return result/256;
 }
+
+int change_directory(Command *command) {
+    if(command->argv->len != 2) {
+        return 1;
+    }
+    if(chdir(vec_get(command->argv, 1)) < 0) {
+        return 1;
+    }
+    return 0;
+}
