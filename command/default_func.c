@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <unistd.h>
+#include <sys/types.h>
+
 #include "command.h"
 #include "../vector/vector.h"
 
@@ -25,7 +28,13 @@ int exit_shell(Vector *argv) {
     exit(0);
 }
 
-int not_default_command(Vector *argv) {
-    printf("TODO: Impl \"not_default_command\"\n");
-    return 0;
+int fork_process(Vector *argv) {
+    pid_t pid = fork();
+    if(pid == 0) {
+        char *args[] = {"echo", "\"This message is printed by \"echo\" process.\"", NULL};
+        execvp("echo", args);
+    }
+    int result = -1;
+    wait(&result);
+    return result;
 }

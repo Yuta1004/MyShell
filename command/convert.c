@@ -60,5 +60,5 @@ int (*__name_2_func(char *name))(Vector*) {
         case 5:
             if(strncmp(name, "error", 5) == 0) return cause_error;
     }
-    return not_default_command;
+    return fork_process;
 }

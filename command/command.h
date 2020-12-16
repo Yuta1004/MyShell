@@ -38,6 +38,6 @@ int exec_command(Vector *command_vec);
 int cause_error(Vector *argv);
 int check_argv(Vector *argv);
 int exit_shell(Vector *argv);
-int not_default_command(Vector *argv);
+int fork_process(Vector *argv);
 
 #endif  // !MY_COMMAND_H
