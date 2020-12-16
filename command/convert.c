@@ -20,7 +20,7 @@ Vector* convert_2_command_vec(Vector *inp) {
 
     for(int idx = 0; idx <inp->len; ++ idx) {
         // コマンド基本情報設定
-        Command *command = __gen_command(NULL, stdin, stdout, stderr, NULL);
+        Command *command = __gen_command(NULL, NULL);
         command->func = __name_2_func(vec_get(inp, idx));
 
         // 引数解析
