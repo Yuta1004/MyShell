@@ -27,6 +27,7 @@ int main(void) {
 
         // コマンド入力
         char inp[256] = {0};
+        fflush(stdin);
         scanf("%256[^\n]", inp);
         Vector *inp_vec = split(inp, ' ');
 
