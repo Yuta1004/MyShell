@@ -32,8 +32,11 @@ int fork_process(Vector *argv) {
     pid_t pid = fork();
     if(pid == 0) {
         execvp(vec_get(argv, 0), (char**)(argv->data));
+        exit(1);
+    } else if(pid < 0) {
+        return -124;
     }
-    int result = -1;
+    int result = -112;
     wait(&result);
     return result;
 }
