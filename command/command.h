@@ -21,7 +21,6 @@ struct Command {
     FILE *stdin;
     FILE *stdout;
     FILE *stderr;
-    int result;
     ExecType exec_type;
 };
 
