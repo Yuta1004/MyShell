@@ -32,6 +32,10 @@ Vector* convert_2_command_vec(Vector *inp) {
                 command->exec_type = CONTINUE;
                 goto command_parse_loop_end;
             }
+            if(elem_len == 2 && strncmp(elem, "&&", 2) == 0) {
+                command->exec_type = CONTINUE_WITH_SUCCESS;
+                goto command_parse_loop_end;
+            }
         }
 
 command_parse_loop_end:
