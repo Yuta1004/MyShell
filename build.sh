@@ -25,6 +25,13 @@ gcc -std=c11 -g -static   -c -o exec.o exec.c &&
 ld -r command.o convert.o default_func.o exec.o -o libcommand.o &&
 echo "OK" &&
 
+# Build Original Commands
+echo -n "Building Original Commands..." &&
+cd ../bin &&
+gcc -o help help.c &&
+gcc -o rabbit rabbit.c &&
+echo "OK" &&
+
 # Build Executable File
 echo -n "Building Executable File..." &&
 cd ../ &&
