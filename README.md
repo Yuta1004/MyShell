@@ -26,6 +26,13 @@ $ ./build.sh
   - `||`
   - `&&`
 
+## Directories
+
+- bin : Original commands such as help
+- command : Functions for executing commands or successfully processing shell
+- str : Original Library for process of string
+- vector : Original Library which offer \"VECTOR\" data structure
+
 ## Usage
 
 ```
