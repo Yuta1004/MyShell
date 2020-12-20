@@ -22,6 +22,7 @@ $ ./build.sh
   - `cd`
   - `exit`
 - Operator
+  - `|`
   - `;`
   - `||`
   - `&&`

@@ -19,6 +19,7 @@ int main(void) {
     printf("- \e[3m./bin/help\e[0m\n");
     printf("- \e[3m./bin/rabbit\e[0m\n\n");
     printf("\e[1m### Operators\e[0m\n\n");
+    printf("- \e[3m|\e[0m\n");
     printf("- \e[3m;\e[0m\n");
     printf("- \e[3m||\e[0m\n");
     printf("- \e[3m&&\e[0m\n");
