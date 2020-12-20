@@ -21,6 +21,8 @@ $ ./build.sh
 - Default Commands
   - `cd`
   - `exit`
+  - `./bin/help`
+  - `./bin/rabbit`
 - Operator
   - `|`
   - `;`
