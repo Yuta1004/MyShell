@@ -24,6 +24,7 @@ void __close_pipe_all(int pipe_v[][2]);
 int exec_command(Vector *command_vec) {
     int result = 0, old_exec_type = NORMAL;
     int pipe_v[2][2];
+    memset(pipe_v, 0, sizeof(int)*4);
 
     for(int idx = 0; idx < command_vec->len; ++ idx) {
         Command *command = vec_get(command_vec, idx);
