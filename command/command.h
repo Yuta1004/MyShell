@@ -32,9 +32,9 @@ Vector* convert_2_command_vec(Vector *inp);
 int exec_command(Vector *command_vec);
 
 /* default_func.c */
-int exit_shell(Command *argv);
-int fork_process(Command *argv);
-int change_directory(Command *argv);
+int exit_shell(Command *command);
+int fork_process(Command *command);
+int change_directory(Command *command);
 int display_help(Command *command);
 int display_rabbit_msg(Command *command);
 
