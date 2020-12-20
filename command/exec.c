@@ -24,16 +24,15 @@ void __close_pipe_all(int pipe_v[][2]);
 int exec_command(Vector *command_vec) {
     int result = 0, old_exec_type = NORMAL;
     int pipe_v[2][2];
-    memset(pipe_v, 0, sizeof(pipe_v));
 
     for(int idx = 0; idx < command_vec->len; ++ idx) {
         Command *command = vec_get(command_vec, idx);
 
         // 標準入出力付け替え
-        if(command->exec_type != PIPE && old_exec_type != PIPE) {
+        if(old_exec_type != PIPE) {
             __close_pipe_all(pipe_v);
         }
-        else if(command->exec_type == PIPE || old_exec_type == PIPE) {
+        if(command->exec_type == PIPE || old_exec_type == PIPE) {
             __update_pipe(pipe_v);
             if(pipe_v[OLD][READ] != 0)
                 command->read_p = pipe_v[OLD][READ];
