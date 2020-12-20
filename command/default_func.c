@@ -60,3 +60,17 @@ int display_help(Command *command) {
     printf("- \e[3m&&\e[0m\n");
     return 0;
 }
+
+int display_rabbit_msg(Command *command) {
+    printf("-----------------------------------\n");
+    printf("|      \e[1mIs the order a rabbit?\e[0m     |\n");
+    printf("| Official Web Site: \e[3mgochiusa.com\e[0m |\n");
+    printf("------- ---------------------------\n");
+    printf("       ⌵ \n");
+    printf("      ∩ ∩\n");
+    printf("      ||凸|\n");
+    printf("     (=･仝･)=\n");
+    printf("     ﾉ /⌒)\n");
+    printf("  ○(_つUU\n");
+    return 0;
+}

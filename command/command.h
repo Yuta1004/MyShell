@@ -36,5 +36,6 @@ int exit_shell(Command *argv);
 int fork_process(Command *argv);
 int change_directory(Command *argv);
 int display_help(Command *command);
+int display_rabbit_msg(Command *command);
 
 #endif  // !MY_COMMAND_H
