@@ -61,10 +61,7 @@ int (*__name_2_func(char *name))(Command*) {
             break;
         case 4:
             if(strncmp(name, "exit", 4) == 0) return exit_shell;
-            if(strncmp(name, "help", 4) == 0) return display_help;
             break;
-        case 6:
-            if(strncmp(name, "rabbit", 6) == 0) return display_rabbit_msg;
     }
     return fork_process;
 }

@@ -15,7 +15,7 @@ int main(void) {
     uid_t uid = getuid();
     struct passwd *pw = getpwuid(uid);
     printf("Hello %s(%d)! (HomeDir: %s)\n", pw->pw_name, uid, pw->pw_dir);
-    printf("\e[1mFirst, type 'help' to show some useful messages!\e[0m\n\n");
+    printf("\e[1mFirst, type './bin/help' to show some useful messages!\e[0m\n\n");
 
     /* シェル本体処理部 */
     int result = 0;

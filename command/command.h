@@ -37,7 +37,5 @@ int exec_command(Vector *command_vec);
 int exit_shell(Command *command);
 int fork_process(Command *command);
 int change_directory(Command *command);
-int display_help(Command *command);
-int display_rabbit_msg(Command *command);
 
 #endif  // !MY_COMMAND_H

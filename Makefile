@@ -12,6 +12,7 @@ build-run:
 	make run
 
 build: $(OBJS)
+	make -C bin
 	$(GCC) -o myshell_i17027 $(OBJS) $(LIBRARIES)
 
 build-lib:
