@@ -17,11 +17,14 @@ int exec_command(Vector *command_vec) {
         result = (command->func)(command);
 
         // 実行継続確認
-        if(command->exec_type == CONTINUE_WITH_SUCCESS && result != 0){
-            break;
-        }
-        if(command->exec_type == CONTINUE_WITH_FAILUE && result == 0){
-            break;
+        switch(command->exec_type) {
+            case CONTINUE_WITH_FAILUE:
+                if(result == 0) return 0;
+                break;
+            case CONTINUE_WITH_SUCCESS:
+                if(result != 0) return result;
+                break;
+            default:;
         }
     }
     return result;
