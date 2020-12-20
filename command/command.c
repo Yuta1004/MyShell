@@ -9,6 +9,8 @@ Command *command_new(int(*func)(Command*), Vector *argv) {
     command->func = func;
     command->argv = argv;
     command->exec_type = NORMAL;
+    command->read_p = 0;
+    command->write_p = 1;
     return command;
 }
 

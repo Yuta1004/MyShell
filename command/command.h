@@ -19,6 +19,8 @@ struct Command {
     int (*func)(Command*);
     Vector *argv;
     ExecType exec_type;
+    int read_p;
+    int write_p;
 };
 
 /* command.c */
