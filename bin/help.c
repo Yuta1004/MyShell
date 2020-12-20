@@ -15,9 +15,9 @@ int main(void) {
     printf("\e[1m## Available features\e[0m\n\n");
     printf("\e[1m### Default commands\e[0m\n\n");
     printf("- \e[3mcd\e[0m\n");
-    printf("- \e[3mhelp\e[0m\n");
-    printf("- \e[3mrabbit\e[0m\n");
-    printf("- \e[3mexit\e[0m\n\n");
+    printf("- \e[3mexit\e[0m\n");
+    printf("- \e[3m./bin/help\e[0m\n");
+    printf("- \e[3m./bin/rabbit\e[0m\n\n");
     printf("\e[1m### Operators\e[0m\n\n");
     printf("- \e[3m;\e[0m\n");
     printf("- \e[3m||\e[0m\n");
