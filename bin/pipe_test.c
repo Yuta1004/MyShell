@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int main(void) {
-    char s[128];
-    scanf("%s", s);
-    printf("Xx%sxX\n", s);
+    char line[128];
+    while (fgets(line, sizeof(line), stdin) != NULL) {
+        printf("%s\n", line);
+    }
+    printf("EOF\n");
 }
