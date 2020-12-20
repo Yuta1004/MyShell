@@ -10,13 +10,12 @@
 #include "vector/vector.h"
 #include "command/command.h"
 
-void print_init_msg();
-
 int main(void) {
     /* 起動処理 */
     uid_t uid = getuid();
     struct passwd *pw = getpwuid(uid);
-    print_init_msg(uid, pw->pw_name, pw->pw_dir);
+    printf("Hello %s(%d)! (HomeDir: %s)\n", pw->pw_name, uid, pw->pw_dir);
+    printf("\e[1mFirst, type 'help' to show some useful messages!\e[0m\n\n");
 
     /* シェル本体処理部 */
     int result = 0;
@@ -47,18 +46,4 @@ int main(void) {
         vec_free(command_vec);
         vec_free(inp_vec);
     }
-}
-
-void print_init_msg(int uid, char *username, char* homedir) {
-    printf("------------------------------------------------------------------------------------------------------------\n");
-    printf("|  ####      ##     ######    ####     ####    ######                     ###                ###      ###  |\n");
-    printf("|   ##      ###     ##  ##   ##  ##   ##  ##   ##  ##                      ##                 ##       ##  |\n");
-    printf("|   ##       ##         ##   ## ###       ##       ##             #####    ##       ####      ##       ##  |\n");
-    printf("|   ##       ##        ##    ######     ###       ##             ##        #####   ##  ##     ##       ##  |\n");
-    printf("|   ##       ##       ##     ### ##    ##        ##               #####    ##  ##  ######     ##       ##  |\n");
-    printf("|   ##       ##       ##     ##  ##   ##  ##     ##                   ##   ##  ##  ##         ##       ##  |\n");
-    printf("|  ####    ######     ##      ####    ######     ##              ######   ###  ##   #####    ####     #### |\n");
-    printf("------------------------------------------------------------------------------------------------------------\n");
-    printf("Hello %s(%d)! (HomeDir => %s)\n\n", username, uid, homedir);
-    printf("\e[1mFirst, type 'help' to show some useful messages!\e[0m\n\n");
 }
