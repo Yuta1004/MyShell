@@ -30,11 +30,14 @@ int exec_command(Vector *command_vec) {
         Command *command = vec_get(command_vec, idx);
 
         // 標準入出力付け替え
-        if(command->exec_type == PIPE || old_exec_type == PIPE) {
+        if(command->exec_type != PIPE && old_exec_type != PIPE) {
+            __close_pipe_all(pipe_v);
+        }
+        else if(command->exec_type == PIPE || old_exec_type == PIPE) {
             __update_pipe(pipe_v);
             if(pipe_v[OLD][READ] != 0)
                 command->read_p = pipe_v[OLD][READ];
-            if(idx+1 != command_vec->len)
+            if(command->exec_type == PIPE)
                 command->write_p = pipe_v[NEW][WRITE];
         }
 
@@ -80,4 +83,5 @@ void __close_pipe_all(int pipe_v[][2]) {
     if(pipe_v[OLD][WRITE] != 0) close(pipe_v[OLD][WRITE]);
     if(pipe_v[NEW][READ] != 0) close(pipe_v[NEW][READ]);
     if(pipe_v[NEW][WRITE] != 0) close(pipe_v[NEW][WRITE]);
+    memset(pipe_v, 0, sizeof(int)*4);
 }
