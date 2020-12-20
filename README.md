@@ -38,16 +38,8 @@ $ ./build.sh
 
 ```
 $ ./myshell_i17027
-------------------------------------------------------------------------------------------------------------
-|  ####      ##     ######    ####     ####    ######                     ###                ###      ###  |
-|   ##      ###     ##  ##   ##  ##   ##  ##   ##  ##                      ##                 ##       ##  |
-|   ##       ##         ##   ## ###       ##       ##             #####    ##       ####      ##       ##  |
-|   ##       ##        ##    ######     ###       ##             ##        #####   ##  ##     ##       ##  |
-|   ##       ##       ##     ### ##    ##        ##               #####    ##  ##  ######     ##       ##  |
-|   ##       ##       ##     ##  ##   ##  ##     ##                   ##   ##  ##  ##         ##       ##  |
-|  ####    ######     ##      ####    ######     ##              ######   ###  ##   #####    ####     #### |
-------------------------------------------------------------------------------------------------------------
-Hello nakagamiyuta(501)! (HomeDir => /homedir)
+Hello nakagamiyuta(501)! (HomeDir: /homedir)
+First, type './bin/help' to show some useful messages!
 
 (0)[nakagamiyuta@localhost /path/to/C/MyShell] $ echo "Hello MyShell"
 "Hello MyShell"
@@ -73,6 +65,9 @@ int change_directory(Command *argv);
 
 (0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ ls
 Makefile	command.c	command.h	command.o	convert.c	convert.o	default_func.c	default_func.o	exec.c		exec.o		libcommand.o
+
+(0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ cat command.h | wc -l
+      40
 
 (0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ cd command.c
 Not a directory
