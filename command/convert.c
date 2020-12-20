@@ -60,6 +60,7 @@ int (*__name_2_func(char *name))(Command*) {
             if(strncmp(name, "cd", 2) == 0) return change_directory;
         case 4:
             if(strncmp(name, "exit", 4) == 0) return exit_shell;
+            if(strncmp(name, "help", 4) == 0) return display_help;
             break;
     }
     return fork_process;
