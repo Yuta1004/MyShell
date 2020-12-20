@@ -16,6 +16,8 @@ int exit_shell(Command *command) {
 int fork_process(Command *command) {
     pid_t pid = fork();
     if(pid == 0) {
+        dup2(command->read_p, 0);
+        dup2(command->write_p, 1);
         vec_push(command->argv, NULL);
         execvp(vec_get(command->argv, 0), (char**)(command->argv->data));
         exit(errno);
