@@ -60,4 +60,5 @@ void print_init_msg(int uid, char *username, char* homedir) {
     printf("|  ####    ######     ##      ####    ######     ##              ######   ###  ##   #####    ####     #### |\n");
     printf("------------------------------------------------------------------------------------------------------------\n");
     printf("Hello %s(%d)! (HomeDir => %s)\n\n", username, uid, homedir);
+    printf("\e[1mFirst, type 'help' to show some useful messages!\e[0m\n\n");
 }
