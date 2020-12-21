@@ -75,8 +75,8 @@ void __update_pipe(int pipe_v[][2]) {
     }
     pipe_v[OLD][READ] = pipe_v[NEW][READ];
     pipe_v[OLD][WRITE] = pipe_v[NEW][WRITE];
-    close(pipe_v[OLD][WRITE]);
     pipe(pipe_v[NEW]);
+    close(pipe_v[OLD][WRITE]);
 }
 
 void __close_pipe_all(int pipe_v[][2]) {
