@@ -46,6 +46,9 @@ First, type './bin/help' to show some useful messages!
 (0)[nakagamiyuta@localhost /path/to/C/MyShell] $ echo "Hello MyShell"
 "Hello MyShell"
 
+(0)[nakagamiyuta@localhost /path/to/C/MyShell] $ find . -name *.c | xargs cat | wc
+     499    1329   13079
+
 (0)[nakagamiyuta@localhost /path/to/C/MyShell] $ cd command
 
 (0)[nakagamiyuta@localhost /path/to/C/MyShell/command] $ cat command.h
