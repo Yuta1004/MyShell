@@ -1,0 +1,3 @@
+[submodule "VineLinux31"]
+	path = VineLinux31
+	url = https://github.com/Yuta1004/VineLinux31.git
