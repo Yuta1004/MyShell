@@ -16,7 +16,7 @@ char *replace(char *raw_str, char *target_str, char *rep_str, int n) {
     int len_raw_str = strlen(raw_str);
     int len_target_str = strlen(target_str);
     int len_rep_str = strlen(rep_str);
-    char *res_str = malloc(len_raw_str+len_rep_str*n+1);
+    char *res_str = calloc(len_raw_str+len_rep_str*n+1, 1);
     char *res_str_cp = res_str;
 
     int idx, cnt = 0;
