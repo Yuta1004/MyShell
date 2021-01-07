@@ -19,6 +19,7 @@ int main(void) {
 
     /* シェル本体処理部 */
     int result = 0;
+    int initial_loop_flag = 0;
     while(1) {
         // プロンプト出力
         char cpath[128];
@@ -27,7 +28,8 @@ int main(void) {
 
         // コマンド入力
         char inp[256] = {0};
-        fflush(stdin);
+        while(initial_loop_flag && getchar() != '\n');
+        initial_loop_flag = 1;
         scanf("%256[^\n]", inp);
         Vector *inp_vec = split(inp, ' ');
 
