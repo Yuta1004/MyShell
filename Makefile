@@ -3,7 +3,7 @@ GCC := gcc
 SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
 LIBRARIES := $(wildcard **/lib*.o)
-CFLAGS := -std=c11 -g -static
+CFLAGS := -g -static
 
 
 build-run:

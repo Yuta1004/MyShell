@@ -2,7 +2,7 @@ CC := gcc
 GCC := gcc
 SRCS := $(wildcard *.c)
 OBJS := $(SRCS:.c=.o)
-CFLAGS := -std=c11 -g -static
+CFLAGS := -g -static
 
 
 build: $(OBJS)
