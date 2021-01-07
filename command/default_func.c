@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <pwd.h>
 #include <errno.h>
 #include <unistd.h>
 #include <sys/types.h>
 
 #include "command.h"
+#include "../str/str.h"
 #include "../vector/vector.h"
 
 int exit_shell(Command *command) {
@@ -30,9 +32,18 @@ int fork_process(Command *command) {
 }
 
 int change_directory(Command *command) {
-    if(command->argv->len != 2) {
-        return 7;
+    uid_t uid = getuid();
+    struct passwd *pw = getpwuid(uid);
+
+    int len = command->argv->len;
+    if(len == 1) {
+        vec_push(command->argv, pw->pw_dir);
+    } else if (len == 2) {
+        vec_push(command->argv, replace(vec_pop(command->argv), "~", pw->pw_dir, 1));
+    } else {
+        return 7;   // Argument list too long
     }
+
     if(chdir(vec_get(command->argv, 1)) < 0) {
         return errno;
     }
