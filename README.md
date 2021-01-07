@@ -43,11 +43,26 @@ $ ./myshell_i17027
 Hello nakagamiyuta(501)! (HomeDir: /homedir)
 First, type './bin/help' to show some useful messages!
 
+(0)[nakagamiyuta@localhost /path/to/C/MyShell] $ ./bin/help
+
+# MyShell i17027
+
+## Prompt
+
+(0)[aaaaaaa@localhost /path/to/file] $ help
+ |     |                    |           |
+ |     |                    |           --- command input space
+
+~~~~~~~~~~~~~~
+
+- ||
+- &&
+
 (0)[nakagamiyuta@localhost /path/to/C/MyShell] $ echo "Hello MyShell"
 "Hello MyShell"
 
-(0)[nakagamiyuta@localhost /path/to/C/MyShell] $ find . -name *.c | xargs cat | wc
-     499    1329   13079
+(0)[nakagamiyuta@localhost /path/to/C/MyShell] $ find str -name *.c | xargs cat | wc -l
+    78     229    1943
 
 (0)[nakagamiyuta@localhost /path/to/C/MyShell] $ cd command
 
