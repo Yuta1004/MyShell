@@ -26,7 +26,8 @@ int exec_command(Vector *command_vec) {
     int pipe_v[2][2];
     memset(pipe_v, 0, sizeof(int)*4);
 
-    for(int idx = 0; idx < command_vec->len; ++ idx) {
+    int idx;
+    for(idx = 0; idx < command_vec->len; ++ idx) {
         Command *command = vec_get(command_vec, idx);
 
         // 標準入出力付け替え

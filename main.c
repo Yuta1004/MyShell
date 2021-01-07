@@ -40,7 +40,8 @@ int main(void) {
         printf("\n");
 
         // 後片付け
-        for(int idx = 0; idx < command_vec->len; ++ idx) {
+        int idx;
+        for(idx = 0; idx < command_vec->len; ++ idx) {
             command_free(vec_get(command_vec, idx));
         }
         vec_free(command_vec);

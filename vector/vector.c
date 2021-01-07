@@ -94,7 +94,8 @@ void *vec_get(Vector *vec, int idx) {
  * - int: 値がVector内に存在するときその場所、存在しないとき-1
  */
 int vec_find(Vector *vec, void* target) {
-    for(int idx = 0; idx < vec->len; ++ idx) {
+    int idx;
+    for(idx = 0; idx < vec->len; ++ idx) {
         if(vec->data[idx] == target)
             return idx;
     }
@@ -114,7 +115,8 @@ int vec_remove(Vector *vec, int target_idx) {
         return -1;
     }
     free(vec->data[target_idx]);
-    for(int idx = target_idx; idx < vec->len-1; ++ idx) {
+    int idx;
+    for(idx = target_idx; idx < vec->len-1; ++ idx) {
         vec->data[idx] = vec->data[idx+1];
     }
     -- vec->len;
@@ -130,7 +132,8 @@ int vec_remove(Vector *vec, int target_idx) {
 void vec_add_capacity(Vector *vec, int size) {
     int new_capacity = vec->capacity + size;
     void **new_data = (void**)malloc(sizeof(void*) * new_capacity);
-    for(int idx = 0; idx < vec->capacity; ++ idx) {
+    int idx;
+    for(idx = 0; idx < vec->capacity; ++ idx) {
         new_data[idx] = vec->data[idx];
     }
     free(vec->data);

@@ -17,7 +17,8 @@ int (*__name_2_func(char *name))(Command*);
 Vector* convert_2_command_vec(Vector *inp) {
     Vector *command_vec = vec_new(1);
 
-    for(int idx = 0; idx <inp->len; ++ idx) {
+    int idx;
+    for(idx = 0; idx <inp->len; ++ idx) {
         // コマンド基本情報設定
         Command *command = command_new(NULL, NULL);
         command->func = __name_2_func(vec_get(inp, idx));

@@ -19,8 +19,8 @@ char *replace(char *raw_str, char *target_str, char *rep_str, int n) {
     char *res_str = malloc(len_raw_str+len_rep_str*n+1);
     char *res_str_cp = res_str;
 
-    int cnt = 0;
-    for(int idx = 0; *(raw_str+idx) != '\0' && cnt < n; ++ idx) {
+    int idx, cnt = 0;
+    for(idx = 0; *(raw_str+idx) != '\0' && cnt < n; ++ idx) {
         if(strncmp(raw_str+idx, target_str, len_target_str)){
             *res_str = *(raw_str+idx);
             ++ res_str;
