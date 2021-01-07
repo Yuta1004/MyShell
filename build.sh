@@ -36,6 +36,7 @@ echo "OK" &&
 # Build Executable File
 echo -n "Building Executable File..." &&
 cd ../ &&
+gcc -std=c11 -g -static -c -o main.o main.c
 gcc -o myshell_i17027 main.o command/libcommand.o str/libstr.o vector/libvector.o &&
 echo "OK" &&
 echo "Complete!" &&
