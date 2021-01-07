@@ -4,8 +4,9 @@
 ## Str
 echo -n "Building \"Str\" Lib..." &&
 cd ./str &&
+gcc -g -static   -c -o replace.o replace.c &&
 gcc -g -static   -c -o split.o split.c &&
-ld -r split.o -o libstr.o &&
+ld -r replace.o split.o -o libstr.o &&
 echo "OK" &&
 
 ## Vector
