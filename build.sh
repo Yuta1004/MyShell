@@ -4,24 +4,24 @@
 ## Str
 echo -n "Building \"Str\" Lib..." &&
 cd ./str &&
-gcc -std=c11 -g -static   -c -o split.o split.c &&
+gcc -g -static   -c -o split.o split.c &&
 ld -r split.o -o libstr.o &&
 echo "OK" &&
 
 ## Vector
 echo -n "Building \"Vector\" Lib..." &&
 cd ../vector &&
-gcc -std=c11 -g -static   -c -o vector.o vector.c &&
+gcc -g -static   -c -o vector.o vector.c &&
 ld -r vector.o -o libvector.o &&
 echo "OK"
 
 ## Command
 echo -n "Building \"Command\" Lib..." &&
 cd ../command &&
-gcc -std=c11 -g -static   -c -o command.o command.c &&
-gcc -std=c11 -g -static   -c -o convert.o convert.c &&
-gcc -std=c11 -g -static   -c -o default_func.o default_func.c &&
-gcc -std=c11 -g -static   -c -o exec.o exec.c &&
+gcc -g -static   -c -o command.o command.c &&
+gcc -g -static   -c -o convert.o convert.c &&
+gcc -g -static   -c -o default_func.o default_func.c &&
+gcc -g -static   -c -o exec.o exec.c &&
 ld -r command.o convert.o default_func.o exec.o -o libcommand.o &&
 echo "OK" &&
 
