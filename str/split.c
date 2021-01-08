@@ -17,12 +17,18 @@ char* __get_str_n(char* str, size_t n);
 Vector* split(char *raw_str, char target) {
     Vector *vec = vec_new(5);
 
-    size_t size = 0;
+    size_t size = 0, padding = 0;
     char *now_ptr = raw_str;
     while(*now_ptr) {
         if(*now_ptr == target) {
-            vec_push(vec, __get_str_n(now_ptr-size, size));
-            size = -1;
+            if(*(now_ptr+1) != target) {
+                vec_push(vec, __get_str_n(now_ptr-size-padding, size));
+                size = -1;
+                padding = 0;
+            } else {
+                -- size;
+                ++ padding;
+            }
         }
         ++ size;
         ++ now_ptr;
