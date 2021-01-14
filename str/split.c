@@ -19,6 +19,9 @@ Vector* split(char *raw_str, char target) {
 
     size_t size = 0, padding = 0;
     char *now_ptr = raw_str;
+    while(*now_ptr == target) {
+        ++ now_ptr;
+    }
     while(*now_ptr) {
         if(*now_ptr == target) {
             if(*(now_ptr+1) != target) {
